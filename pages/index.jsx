@@ -1,11 +1,12 @@
 import useSWR from 'swr';
 import { SiSpotify } from 'react-icons/si';
+import Image from 'next/image';
 
 export default function Home() {
     const fetcher = (url) => fetch(url).then((r) => r.json());
     const { data } = useSWR('/api/spotify', fetcher);
     return (
-          <>
+        <>
             <section className=''>
                 <main className='flex flex-col items-center justify-center min-h-screen space-y-3 bg-gray-900'>
                     <div>
@@ -13,7 +14,7 @@ export default function Home() {
                         <p className='text-center mt-4'>
                             <a
                                 target='_blank'
-                                rel='noopener noreferer'
+                                rel='noreferrer noopener'
                                 href='https://theodorusclarence.com/blog/spotify-now-playing'
                                 className='underline hover:text-blue-500 text-gray-200 font-sans'
                             >
@@ -23,7 +24,7 @@ export default function Home() {
                     </div>
                     <a
                         target='_blank'
-                        rel='noopener noreferer'
+                        rel='noreferrer noopener'
                         href={
                             data?.isPlaying
                                 ? data.songUrl
